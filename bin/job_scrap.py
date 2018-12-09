@@ -5,7 +5,6 @@ Script that creates the Cronjob for scrapping every 30min
 from crontab import CronTab
 import os
 
-
 cron = CronTab(user=True)
 
 # CREATE COMMAND
@@ -23,7 +22,7 @@ script_path = os.path.join(
 )
 command = f'"{python_path}" "{script_path}""'
 
-job = cron(command=command, comment='housing_scrap')
+job = cron.new(command=command, comment='housing_scrap')
 
 # SET RESTRICTIONS
 job.minute.on(10)
