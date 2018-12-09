@@ -5,6 +5,7 @@ class PAP(Scrapper):
 
     def __init__(self):
         super(PAP, self).__init__()
+        self.website = "PAP"
 
     def run(self):
         super(PAP, self).run()

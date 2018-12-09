@@ -1,6 +1,9 @@
 import logging
 import logging.config
 import logging.handlers
+from dotenv import load_dotenv
+load_dotenv()
+
 from housing.conf.Config import Config
 
 
