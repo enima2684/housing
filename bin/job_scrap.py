@@ -21,6 +21,7 @@ script_path = os.path.join(
     'ScrapperRunner.py'
 )
 command = f'cd {os.getcwd()} && "{python_path}" "{script_path}"'
+print(f"COMMAND : {command}")
 
 job = cron.new(command=command, comment='housing_scrap')
 
