@@ -1,28 +1,29 @@
 from __future__ import with_statement
+from dotenv import load_dotenv
+load_dotenv()
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 from logging.config import fileConfig
-from dotenv import load_dotenv
-from housing.models import DeclarativeBase
-load_dotenv()
 import os
-
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
+config.set_main_option('sqlalchemy.url', os.getenv("SQL_DB_URI"))
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
 fileConfig(config.config_file_name)
-config.set_main_option('sqlalchemy.url', os.getenv("SQL_DB_URI"))
-
 
 # add your model's MetaData object here
 # for 'autogenerate' support
-print(f"🐳🐳🐳🐳🐳 {os.getcwd()}  🐳🐳🐳🐳🐳🐳")
-target_metadata = DeclarativeBase.metadata
+# from myapp import mymodel
+# target_metadata = mymodel.Base.metadata
+#target_metadata = None
 
+from housing.models.Record import Record
+target_metadata = Record.metadata
+print(target_metadata)
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
