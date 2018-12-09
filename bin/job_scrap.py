@@ -10,17 +10,17 @@ cron = CronTab(user=True)
 # CREATE COMMAND
 python_path = os.path.join(
     os.getcwd(),
-    os.pardir,
     'venv',
     'bin',
     'python'
 )
 script_path = os.path.join(
     os.getcwd(),
+    'housing',
     'Scrapper',
     'ScrapperRunner.py'
 )
-command = f'"{python_path}" "{script_path}""'
+command = f'"{python_path}" "{script_path}"'
 
 job = cron.new(command=command, comment='housing_scrap')
 
