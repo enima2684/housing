@@ -31,12 +31,12 @@ class Config:
     def load_infra_params(self):
         print(os.getcwd())
         # check if it is develop or deploy
-        with open('./conf/infra_params.yml', 'r') as stream:
+        with open('./housing/conf/infra_params.yml', 'r') as stream:
             self.infra_params = yaml.load(stream)
 
     def load_config_params(self):
         # check if it is develop or deploy
-        with open('./conf/config.yml', 'r') as stream:
+        with open('./housing/conf/config.yml', 'r') as stream:
             self.params = yaml.load(stream)
 
     def __getitem__(self, key):

@@ -1,6 +1,7 @@
 from housing.HousingModule import HousingModule
 from housing.Scrapper.PAP import PAP
 from housing.Scrapper.SeLoger import SeLoger
+import os
 
 
 class ScrapperRunner(HousingModule):
@@ -16,4 +17,5 @@ class ScrapperRunner(HousingModule):
             scrapper.run()
 
 if __name__ == '__main__':
+    print(f'🐙🐙🐙🐙 {os.getcwd()}  🐙🐙🐙🐙🐙')
     ScrapperRunner().run()
