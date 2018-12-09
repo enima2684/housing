@@ -7,7 +7,7 @@ import hashlib
 import uuid
 
 from housing.models import db_connect, create_tables
-from housing.models.Scrap_Metadata import Scrap_Metadata
+from housing.models.Record import Record
 from housing.HousingModule import HousingModule
 
 
@@ -70,10 +70,10 @@ class Scrapper(HousingModule):
 
         hash = self.getHash()
 
-        meta = Scrap_Metadata(
+        meta = Record(
             file_name=file_name,
-            web_site =self.web_site,
-            hash_doc = hash,
+            web_site=self.web_site,
+            hash_doc=hash,
         )
 
         try:

@@ -1,5 +1,5 @@
 from housing.models import DeclarativeBase
-from sqlalchemy import Column, Integer, String, DateTime, Enum
+from sqlalchemy import Column, Integer, String, DateTime, Enum, Boolean
 import datetime
 import enum
 
@@ -7,7 +7,7 @@ class WebSites(enum.Enum):
     PAP     = 1
     SeLoger = 2
 
-class Scrap_Metadata(DeclarativeBase):
+class Record(DeclarativeBase):
     """Sql alchemy model for the metadata"""
     __tablename__ = "scrap_metadata"
 
@@ -16,4 +16,6 @@ class Scrap_Metadata(DeclarativeBase):
     web_site       = Column(Enum(WebSites), comment="PAP or SeLoger", nullable=False)
     created_at     = Column(DateTime, default=datetime.datetime.utcnow, comment="Extraction date", nullable=False)
     hash_doc       = Column(String(256))
+    processed      = Column(Boolean, default=False)
+
 
