@@ -17,5 +17,4 @@ class ScrapperRunner(HousingModule):
             scrapper.run()
 
 if __name__ == '__main__':
-    print(f'🐙🐙🐙🐙 {os.getcwd()}  🐙🐙🐙🐙🐙')
     ScrapperRunner().run()
