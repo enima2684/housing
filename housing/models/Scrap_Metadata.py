@@ -3,7 +3,7 @@ from sqlalchemy import Column, Integer, String, DateTime, Enum
 import datetime
 import enum
 
-class WebSites:
+class WebSites(enum.Enum):
     PAP     = 1
     SeLoger = 2
 
