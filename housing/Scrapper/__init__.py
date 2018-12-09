@@ -4,6 +4,7 @@ from datetime import datetime
 import boto3
 from sqlalchemy.orm import sessionmaker
 import hashlib
+import uuid
 
 from housing.models import db_connect, create_tables
 from housing.models.Scrap_Metadata import Scrap_Metadata
@@ -43,8 +44,11 @@ class Scrapper(HousingModule):
         :return:
         """
         self.logger.info("Saving the data on S3")
-        file_name = datetime.now().strftime("%Y%m%d_%H%M%S") + "__" + self.web_site
-
+        file_name = "__".join([
+            uuid.uuid4().hex[:6],
+            datetime.now().strftime("%Y%m%d_%H%M%S"),
+            self.web_site,
+            ])
         self.s3.Object(
             os.getenv("AWS_BUCKET_NAME"),
             file_name
@@ -93,7 +97,7 @@ class Scrapper(HousingModule):
         file_name = self.save_to_s3()
 
         # 3. update the metadata
-        self.logger.info("Updating the metadata")
+        self.update_metadata(file_name=file_name)
 
 
 if __name__ == '__main__':
