@@ -10,4 +10,5 @@ Scrap and alert on housing prices
 |AWS_SECRET_ACCESS_KEY   | AWS S3 private key   |
 |AWS_DEFAULT_REGION      | Default AWS Region to which the requests are made : eu-west-3|
 |AWS_BUCKET_NAME         | Name of the bucket containing all the data|
+|SQL_DB_URI              | Uri to connect to the sql Database
 
