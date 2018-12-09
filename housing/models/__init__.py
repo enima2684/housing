@@ -14,7 +14,7 @@ def db_connect():
     return create_engine(os.getenv("SQL_DB_URI"))
 
 
-def create_deals_table(engine):
+def create_tables(engine):
     """"""
     DeclarativeBase.metadata.create_all(engine)
 

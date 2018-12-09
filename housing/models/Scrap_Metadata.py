@@ -15,5 +15,5 @@ class Scrap_Metadata(DeclarativeBase):
     file_name      = Column(String(255), comment="File name on S3", nullable=False)
     web_site       = Column(Enum(WebSites), comment="PAP or SeLoger", nullable=False)
     created_at     = Column(DateTime, default=datetime.datetime.utcnow, comment="Extraction date", nullable=False)
-    hash_last_item = Column(String(256))
+    hash_doc       = Column(String(256))
 
