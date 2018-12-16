@@ -29,12 +29,11 @@ class Parser(HousingModule):
             session.close()
 
         # 2. run the correct parser for each record
-
+        self.logger.info(f'Parsing {len(records)} records .. 🐳🐳🐳🐳🐳🐳🐳🐳🐳')
         for record in records:
             if record.web_site is WebSites.PAP:
                 ParserPAP(file_name=record.file_name).run()
                 record.processed = True
-
 
             if record.web_site is WebSites.SeLoger:
                 print('SE LOGER PARSER PLACEHOLDER')
