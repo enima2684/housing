@@ -12,7 +12,7 @@ class Ad(DeclarativeBase):
 
     id          = Column(String(128), primary_key=True, nullable=False)
     source_file = Column(String(255), comment="File name on S3 from which it was extracted", nullable=False)
-    web_site    = Column(Enum(WebSites), comment="PAP or SeLoger", nullable=False, create_type=False)
+    web_site    = Column(Enum(WebSites, create_type=False), comment="PAP or SeLoger", nullable=False)
     created_at  = Column(DateTime, default=datetime.datetime.utcnow, comment="Parsing date", nullable=False)
 
     price       = Column(Integer, nullable=False, comment="Price of the asset")
