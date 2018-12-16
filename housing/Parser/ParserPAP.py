@@ -130,8 +130,11 @@ class ParserPAP(HousingModule):
             ) \
                 .all()
 
+
             existing_ids = [item.id for item in already_existing]
             self.logger.debug(f'..{len(existing_ids)} items already exist on the database')
+            print('****')
+            print(existing_ids)
 
             items_to_save = [item for item in parsed_data if item.id not in existing_ids]
             self.logger.info(f'..saving only {len(items_to_save)} items from file {self.file_name}')
