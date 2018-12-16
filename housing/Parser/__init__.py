@@ -36,7 +36,8 @@ class Parser(HousingModule):
                 record.processed = True
 
             if record.web_site is WebSites.SeLoger:
-                print('SE LOGER PARSER PLACEHOLDER')
+                # print('SE LOGER PARSER PLACEHOLDER')
+                dummy = True
 
 
         # 3. resave the status of the files
