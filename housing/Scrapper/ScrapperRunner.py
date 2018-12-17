@@ -9,7 +9,7 @@ class ScrapperRunner(HousingModule):
     def __init__(self):
         self.scrappers = [
             PAP(),
-            SeLoger(),
+            #SeLoger(),
         ]
 
     def run(self):
